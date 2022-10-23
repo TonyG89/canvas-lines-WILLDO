@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>canvas lines</title>
+    </head>
+    <body>
+        <style>
+        canvas{
+            width: 800px;
+            height: 500px;
+            border: 3px solid grey;
+            background-color: antiquewhite;
+            
+        }
+    </style>
+        <canvas width="800" height="500"></canvas>
+        <script>
+    let canvas = document.querySelector('canvas')
+        let ctx = canvas.getContext('2d')
+
+//         ctx.strokeStyle="black"
+//         ctx.lineWidth="1"
+//         ctx.rect(0,0,200,200)
+//         ctx.stroke()
+// ctx.fillStyle = "red";
+// ctx.fillRect(20, 20, 150, 100);
+let first = 0
+let second = 0
+
+ctx.moveTo(100,50)
+ctx.lineTo(150,50)
+ctx.stroke()
+
+        canvas.addEventListener("mousedown", e=>{
+                let x= e.offsetX
+                let y= e.offsetY
+                let myX
+let myY
+                ctx.fillRect(x,y,5,5)
+
+
+                canvas.addEventListener("mousemove", e=>{
+                    myX =e.offsetX
+                    myY = e.offsetY
+                    ctx.beginPath()
+                        ctx.moveTo(x,y) 
+        
+                    console.log(myX,myY)
+                    ctx.lineTo(myX,myY) 
+                    ctx.stroke()
+                })
+
+        })
+
+
+        </script>
+    </body>
+</html>
